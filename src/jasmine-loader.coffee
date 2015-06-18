@@ -8,7 +8,7 @@ reporters      = require 'jasmine-reporters'
 
 fileFinder     = require './file-finder'
 booter         = require './jasmine/boot'
-jasminejs      = __dirname + '/jasmine/jasmine-2.0.0.js'
+jasminejs      = __dirname + '/jasmine/jasmine-2.3.4.js'
 
 # Begin real code
 contextObj = {
@@ -64,7 +64,7 @@ loadJasmine = ->
 
         return
 
-    jasmineEnv = booter.boot contextObj.window.jasmineRequire, clockCallback
+    jasmineEnv = booter.boot contextObj.getJasmineRequireObj(), clockCallback
     return jasmineEnv
 
 # Define helper functions

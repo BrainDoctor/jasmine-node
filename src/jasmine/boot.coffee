@@ -68,6 +68,12 @@ boot = (jasmineRequire, clockCallback) ->
         afterEach: (afterEachFunction) ->
             return env.afterEach(afterEachFunction)
 
+        beforeAll: (beforeAllFunction) ->
+            return env.beforeAll(beforeAllFunction)
+
+        afterAll: (afterAllFunction) ->
+            return env.afterAll(afterAllFunction)
+
         expect: (actual) ->
             return env.expect(actual)
 
