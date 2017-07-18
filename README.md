@@ -1,48 +1,31 @@
 jasmine-node
 ======
 
-[![Build Status](https://travis-ci.org/tebriel/jasmine-node.png?branch=Jasmine2.0)](https://travis-ci.org/tebriel/jasmine-node)
-![Dependencies](https://david-dm.org/tebriel/jasmine-node.png)
-
 This node.js module makes the wonderful [Pivotal Lab's jasmine](http://github.com/pivotal/jasmine)
 spec framework available in node.js.
 
 jasmine
 -------
 
-Version `2.0.0` of Jasmine is currently included with node-jasmine.
+This fork should work with any jasmine 2.x version, though tested with `2.6.4`.
+
+Jasmine is NOT included anymore.
 
 requirements
 ------------
 
-Requires version `10.x` of Node.js, please upgrade if you're on `0.8`, that's
-just painful.
-
-what's new
-----------
-*  90% Refactor, Convert to Coffee-Script
-*  Isolate jasmine.js into a vm with a separate context for clean re-execution
-     of specs
-*  Now using Jasmine 2.0.0
-*  Removed Support for RequireJS as it was buggy, confusing, and I'm pretty
-     sure no one was using it.
-*  Removed Support for Custom Helpers (have to be inside a beforeEach, this is
-     a jasmine change, check out their docs on how to write one)
-*  Removed Custom Timeout (jasmine has added a done function and
-     `jasmine.DEfAULT_TIMEOUT_INTERVAL`, just use that instead of expecting a
-     test to take no longer than `x` milliseconds)
-*  Removed TeamCity Reporter (no support for Jasmine 2.0) will be re-added when
-     support is available
-*  Removed JUnit Reporter (no support for Jasmine 2.0) will be re-added when
-     support is available
+Recent version of node.js
 
 install
 ------
 
-To install the latest official version, use NPM:
+This fork assumes that you have `jasmine-core` 2.x installed via npm, but LOCALLY (not global)
+
+The official npm module is outdated. Follow these instructions:
 
 ```sh
-npm install -g jasmine-node
+cd /your/project/node_modules
+git clone https://github.com/BrainDoctor/jasmine-node.git
 ```
 
 usage
@@ -82,7 +65,7 @@ The jasmine-node object returned contains a defaults object so that you can see
 what the expected args are. Pass only the options you need (the rest will be
 filled in by the defaults) to the `.run(<options>)` command and away you go!
 
-
+These might be outdated:
 
 You can supply the following arguments:
   *  `--autoTest`               -  rerun automatically the specs when a file changes
@@ -139,24 +122,10 @@ Growl must be installed separately, see [node-growl](https://github.com/visionme
 for platform-specific instructions. Pass the `--growl` flag to enable the notifications.
 
 
-development
------------
-
-Install the dependent packages by running:
-
-```sh
-npm install
-```
-
-Run the specs before you send your pull request and ensure all pass:
-
-```sh
-specs.sh
-```
-
 changelog
 ---------
 
+*  _3.0_ Removing the included Jasmine and use jasmine-core instead, to be version independent.
 *  _2.0.0_ Upgrade to Jasmine 2.0.0, remove support for legacy/unused items
 *  _1.14.3_ Added 'onComplete' callback to TeamCityReporter (thanks to [JoergFiedler](https://github.com/JoergFiedler))
 *  _1.14.2_ Uhhh...not sure what happened here.
